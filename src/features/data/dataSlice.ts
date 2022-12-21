@@ -28,5 +28,14 @@ const dataSlice = createSlice({
         .addCase(fetchDataAsync.pending, (state: DataState) => {
             state.loading = true
         })
+        .addCase(fetchDataAsync.fulfilled, (state: DataState, action: PayloadAction<Array<DataInstance>>) => {
+            state.loading = false
+            state.data = action.payload
+        })
+        .addCase(fetchDataAsync.rejected, (state: DataState) => {
+            state.loading = false
+        })
     },
 })
+
+export default dataSlice.reducer

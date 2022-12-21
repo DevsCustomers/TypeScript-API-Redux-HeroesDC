@@ -1,10 +1,10 @@
-import type InstanceData - { header: string, length: number }
+import type InstanceData = { header: string, length: number }
 export type DataInstance = { header: string, data: Array<InstanceData> }
 
 export function simulateFetchAPI() {
     return new Promise((resolve: (result: Array<DataInstance>) => void) => {
         setTimeout(() => {
-            const result: Array<DataInstance> - [
+            const result: Array<DataInstance> = [
                 {
                     header: new Date().toISOString(),
                     data: [{ header: "Batman", length: 1 }, { header: "Superman", length: 10 }, { header: "Green Lantern", length: 15 }]
