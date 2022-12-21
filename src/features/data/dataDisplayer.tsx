@@ -1,11 +1,34 @@
-import { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { AppDispatch } from '../../app/store';
+import { useState, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { fetchDataAsync } from './dataSlice';
+import { DataInstance, InstanceData } from "./dataAPI";
 
 const DataDisplayer = () => {
-    const AppDispatch = useAppDispatch()
-    const data = useAppSelector(this.state. => state.data.data)
+    const dispatch = useAppDispatch()
+    const data = useAppSelector(state => state.data.data)
     const [dataPresent, setDataPresent] = useState<boolean>(false)
 
+    useEffect(() => {
+        if (!dataPresent) {
+            dispatch(fetchDataAsync())
+            setDataPresent(true)
+        }
+        }, [])
 
-}
+    const renderedData = data.map((d: DataInstance) => {
+        const insideElements = d.data.map((i: InstanceData) => <p>{i.header}: {i.length}</p>)
+        return (
+            <>
+            <h1>{d.header}</h1>
+            {insideElements}
+            </>
+        )
+    });
+    return (
+        <div>
+            {renderedData}
+        </div>
+    )
+    }
+    export default DataDisplayer
+        

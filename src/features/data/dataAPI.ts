@@ -7,15 +7,15 @@ export function simulateFetchAPI() {
             const result: Array<DataInstance> = [
                 {
                     header: new Date().toISOString(),
-                    data: [{ header: "Batman", length: 1 }, { header: "Superman", length: 10 }, { header: "Green Lantern", length: 15 }]
+                    data: [{ header: "Batman", length: 1 }, { header: "Superman", length: 2 }, { header: "Green Lantern", length: 3 }]
                 },
                 {
                     header: new Date().toISOString(),
-                    data: [{ header: "Wonder Woman", length: 1 }, { header: "Aquaman", length: 10 }, { header: "Cyborg", length: 15 }]
+                    data: [{ header: "Wonder Woman", length: 4 }, { header: "Aquaman", length: 5 }, { header: "Cyborg", length: 6 }]
                 },
                 {
                     header: new Date().toISOString(),
-                    data: [{ header: "Green Arrow", length: 1 }, { header: "Hawkman", length: 10 }, { header: "Nightwing", length: 15 }]
+                    data: [{ header: "Green Arrow", length: 7 }, { header: "Hawkman", length: 8 }, { header: "Nightwing", length: 9 }]
                 },
             ]
         resolve(result)
